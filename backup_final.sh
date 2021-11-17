@@ -82,7 +82,7 @@ if ! [ -d $backup_tmp/$backup_name ]
 		echo "Temporaly directory already exist"
 fi
 
-# list files to backup in cycle and copy them to temporaly directory
+# list files to backup in loop and copy them to temporaly directory
 for i in $wtb/*
 	do 
 		if [[ $i == ${mask} ]]
@@ -94,8 +94,8 @@ for i in $wtb/*
 		fi
 	done
 
-# compress temporaly files to archiive
-tar -cf - $backup_tmp/$backup_name | gzip $cr > $backup/$backup_name.tar.gz
+# compress temporaly files to archive
+tar -cf - $backup_tmp/$backup_name 2> /dev/null | gzip $cr > $backup/$backup_name.tar.gz
 # delete temporaly files
 rm -rf $backup_tmp/$backup_name
 
