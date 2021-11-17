@@ -95,6 +95,7 @@ for i in $wtb/*
 	done
 
 # compress temporaly files to archive
+echo "Compressing..."
 tar -cf - $backup_tmp/$backup_name 2> /dev/null | gzip $cr > $backup/$backup_name.tar.gz
 # delete temporaly files
 rm -rf $backup_tmp/$backup_name
